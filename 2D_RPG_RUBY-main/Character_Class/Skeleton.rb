@@ -352,7 +352,7 @@ def updateMonster(player, map, items, npcs, monsters)
           end
         end
       else
-        @image.play(animation: :attack) do
+        @image.play(animation: :attackFirst) do
           if @onAttackBox
             self.attackTarget(player)
           end
