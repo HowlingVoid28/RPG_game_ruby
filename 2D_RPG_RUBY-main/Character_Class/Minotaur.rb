@@ -93,6 +93,7 @@ class Minotaur < Monster
     #6. This will be convenient for random move function
     @moveCounter = 0
 
+    @attackDelay = 0
 
   end
   
@@ -139,7 +140,11 @@ class Minotaur < Monster
       #IV. Attack the player
       # Check if collision with player then attack at right time
       if @onAttackBox
-        self.attackTarget(player)
+        if @attackDelay >= 20
+          self.attackTarget(player)
+          @attackDelay = 0
+        end
+        @attackDelay += 1
       end
 
     else
